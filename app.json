@@ -5,6 +5,12 @@
     "sdkVersion": "23.0.0",
     "privacy": "public",
     "icon": "http://nativebase.io/assets/img/front-page-icon.png",
+    "ios": {
+      "bundleIdentifier": "com.labowebfrance.dssonorisation"
+    },
+    "android": {
+      "package": "com.labowebfrance.dssonorisation"
+    },
     "loading": {
       "hideExponentText": false,
       "backgroundImage": "./images/splashscreen/logo.png"

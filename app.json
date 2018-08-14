@@ -1,5 +1,17 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "DS Sonorisation",
+    "slug": "ds-sonorisation",
+    "sdkVersion": "23.0.0",
+    "privacy": "public",
+    "icon": "http://nativebase.io/assets/img/front-page-icon.png",
+    "loading": {
+      "hideExponentText": false,
+      "backgroundImage": "./images/splashscreen/logo.png"
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#ccc"
+    }
   }
 }

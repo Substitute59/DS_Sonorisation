@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Modal } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { Camera, Permissions } from 'expo';
@@ -69,7 +69,6 @@ class LiveCamera extends React.Component {
           <View style={{ flex: 1 }}>
             <Modal
               onRequestClose={() => {
-
               }}>
               <Camera style={{ flex: 1 }} type={this.state.type}>
                 <View

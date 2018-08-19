@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Image, Dimensions } from 'react-native';
 import { Container, Footer, FooterTab, Button, Icon, Text, Spinner } from 'native-base';
 

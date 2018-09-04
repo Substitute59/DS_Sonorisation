@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 import { View, Modal } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import { Camera, Permissions } from 'expo';
+import { Camera, Permissions, FileSystem } from 'expo';
 import { Text, Spinner } from 'native-base';
 
 class LiveCamera extends React.Component {
@@ -39,10 +39,30 @@ class LiveCamera extends React.Component {
     }
   };
 
-  onSwipeLeft(gestureState) {
+  onSwipeLeft() {
     const { navigate } = this.props.navigation;
     navigate('Home');
   }
+
+  onSwipeRight() {
+    this.snap();
+  }
+
+  snap = async () => {
+    if (this.camera) {
+      let photo = await this.camera.takePictureAsync()
+        .then(data => {
+          const filename = new Date().getTime() + '.jpg';
+          const image = Expo.FileSystem.documentDirectory + filename;
+          console.log(image);
+
+          Expo.FileSystem.copyAsync({
+            from: data.uri,
+            to: image
+          });
+        });
+    }
+  };
 
   render() {
     if (!this.state.isReady) {
@@ -64,13 +84,14 @@ class LiveCamera extends React.Component {
       };
       return (
         <GestureRecognizer
-          onSwipeLeft={(state) => this.onSwipeLeft(state)}
+          onSwipeLeft={() => this.onSwipeLeft()}
+          onSwipeRight={() => this.onSwipeRight()}
           config={config}>
-          <View style={{ flex: 1 }}>
+          <View style={{flex: 1}}>
             <Modal
               onRequestClose={() => {
               }}>
-              <Camera style={{ flex: 1 }} type={this.state.type}>
+              <Camera ref={ref => {this.camera = ref;}} style={{flex: 1}} type={this.state.type}>
                 <View
                   style={{
                     flex: 1,

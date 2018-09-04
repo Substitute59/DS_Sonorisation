@@ -1,5 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19002,
-  "packagerPid": 26560
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://z9-n2w.substitute59.ds-sonorisation.exp.direct",
+  "packagerNgrokUrl": "https://packager.z9-n2w.substitute59.ds-sonorisation.exp.direct",
+  "ngrokPid": 69451
 }
